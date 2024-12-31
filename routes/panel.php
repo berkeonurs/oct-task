@@ -328,6 +328,12 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'l
                 })->name('index');
             });
 
+            Route::prefix('adsense')->name('adsense.')->group(function (){
+                Route::get('/', [AdminController::class, 'getAdsenseList'])->name('list');
+                Route::get('{id}/edit', [AdminController::class, 'editAdsense'])->name('edit');
+                Route::post('{id}/update', [AdminController::class, 'updateAdsense'])->name('update');
+            });
+
         });
 
         //Support Area

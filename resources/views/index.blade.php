@@ -1,9 +1,18 @@
 @extends('layout.app')
-
 @section('content')
+	@php
+		$headerAd = $ads->where('type', 'landing-header-section')->where('status', 'active')->first();
+	@endphp
 
+	@if($headerAd)
+		<div class="ads-header my-4">
+			{!! $headerAd->code !!}
+		</div>
+	@endif
 <section class="site-section flex items-center justify-center min-h-screen text-center text-white relative py-52 max-md:pb-16 max-md:pt-48 overflow-hidden bg-gradient-to-br from-[#3655df] via-[#A068FA] via-70% to-[#327BD1]" id="banner">
+
 	<canvas id="banner-bg" class="absolute top-0 start-0 w-full-h-full"></canvas>
+
 	<div class="container relative">
 		<div class="max-lg:w-2/3 max-md:w-full flex flex-col items-center w-1/2 mx-auto">
 			<h6 class=" rounded-2xl px-3 py-1 mb-8 bg-white bg-opacity-15 text-white relative overflow-hidden transition-all ease-out opacity-0 translate-y-6 blur-lg group-[.page-loaded]/body:opacity-100 group-[.page-loaded]/body:translate-y-0 group-[.page-loaded]/body:blur-0">
@@ -76,6 +85,15 @@
 				title="{!! __($fSectSettings->features_title) !!}"
 				subtitle="{!! __($fSectSettings->features_description) ?? __('MagicAI is designed to help you generate high-quality content instantly, without breaking a sweat.') !!}"
 			/>
+			@php
+				$featuresAd = $ads->where('type', 'landing-features-section-728x90')->where('status', 'active')->first();
+			@endphp
+
+			@if($featuresAd)
+				<div class="ads-header my-4">
+					{!! $featuresAd->code !!}
+				</div>
+			@endif
 			<div class="gap-x-20 gap-y-9 max-lg:grid-cols-2 max-lg:gap-x-10 max-md:grid-cols-1 grid justify-between grid-cols-3">
                 @foreach($futures as $future)
                     <x-box title="{!! __($future->title) !!}" desc="{!! __($future->description) !!}">
@@ -159,6 +177,16 @@
 				title="{!! $fSectSettings->custom_templates_title !!}"
 				subtitle="{!! $fSectSettings->custom_templates_description ?? 'Create your own template or use pre-made templates and examples for various content types and industries to help you get started quickly.' !!}"
 			>
+
+				@php
+					$templatesAd = $ads->where('type', 'landing-templates-section-728x90')->where('status', 'active')->first();
+				@endphp
+
+				@if($templatesAd)
+					<div class="ads-header my-4">
+						{!! $templatesAd->code !!}
+					</div>
+				@endif
 				<h6 class="inline-block py-1 px-3 mb-6 rounded-md text-[13px] font-medium text-[#083D91] bg-[#083D91] bg-opacity-15">
 					{!! __($fSectSettings->custom_templates_subtitle_one) !!}
 					<span class="dot"></span>
@@ -217,6 +245,15 @@
 				title="{{__($fSectSettings->tools_title)}}"
 				subtitle="{{__($fSectSettings->tools_description) ?? __('MagicAI has all the tools you need to create and manage your SaaS platform.')}}"
 			/>
+			@php
+				$toolsAd = $ads->where('type', 'landing-tools-section-728x90')->where('status', 'active')->first();
+			@endphp
+
+			@if($toolsAd)
+				<div class="ads-header my-4">
+					{!! $toolsAd->code !!}
+				</div>
+			@endif
 			<div class="max-lg:grid-cols-2 max-md:grid-cols-1 grid grid-cols-3 gap-3">
                 @foreach($tools as $tool)
 				<x-box style="3" title="{!! __($tool->title) !!}" desc="{!! __($tool->description) !!}">
@@ -236,6 +273,15 @@
 <section class="site-section py-10 md:opacity-0 md:translate-y-8 transition-all duration-700 [&.lqd-is-in-view]:opacity-100 [&.lqd-is-in-view]:translate-y-0" id="how-it-works">
 	<div class="container">
 		<div class="p-10 py-24 bg-[#010101] rounded-[50px] shadow-xl text-white text-opacity-60 max-sm:px-5 bg-cover" style="background-image: url(/assets/img/site/steps-bg.jpg);">
+			@php
+				$howitWorksAd = $ads->where('type', 'landing-how-it-works-section-728x90')->where('status', 'active')->first();
+			@endphp
+
+			@if($howitWorksAd)
+				<div class="ads-header my-4">
+					{!! $howitWorksAd->code !!}
+				</div>
+			@endif
 			<div class="mb-14 max-xl:w-1/2 max-lg:w-8/12 max-md:w-full w-2/5 mx-auto text-center">
 				<h2 class="text-[#E5E6E6] text-[64px] leading-none max-sm:text-[45px]">{!! __($fSectSettings->how_it_works_title) !!}</h2>
 			</div>
@@ -268,6 +314,15 @@
 				title="{!! $fSectSettings->testimonials_title !!}"
 				subtitle=""
 			>
+				@php
+					$testimonialsAd = $ads->where('type', 'landing-testimonials-section-728x90')->where('status', 'active')->first();
+				@endphp
+
+				@if($testimonialsAd)
+					<div class="ads-header my-4">
+						{!! $testimonialsAd->code !!}
+					</div>
+				@endif
 				<h6 class="inline-block py-1 px-3 mb-6 rounded-md text-[13px] font-medium text-[#28027C] bg-[#28027C] bg-opacity-15">
                     {!! __($fSectSettings->testimonials_subtitle_one) !!}
 					<span class="dot"></span>
@@ -335,6 +390,15 @@
 				title="{!! __($fSectSettings->pricing_title) !!}"
 				subtitle="{!! __($fSectSettings->pricing_description) ?? __('Flexible and affording plans tailored to your needs. Save up to %20 for a limited time.') !!}"
 			/>
+			@php
+				$pricingAd = $ads->where('type', 'landing-pricing-section-728x90')->where('status', 'active')->first();
+			@endphp
+
+			@if($pricingAd)
+				<div class="ads-header my-4">
+					{!! $pricingAd->code !!}
+				</div>
+			@endif
 			<div class="lqd-tabs text-center">
 				<div class="lqd-tabs-triggers inline-flex flex-wrap gap-2 mx-auto mb-9 text-[15px] font-medium leading-none border rounded-md">
 					<x-tabs-trigger target="#pricing-monthly" style="3" label="{{__('Monthly Billing')}}" badge="{{__($fSectSettings->pricing_save_percent)}}" active="true" />
@@ -410,6 +474,15 @@
                     title="{!! __($fSectSettings->faq_title) !!}"
                     subtitle="{!! __($fSectSettings->faq_subtitle) !!}"
                 >
+					@php
+						$faqAd = $ads->where('type', 'landing-faq-section-728x90')->where('status', 'active')->first();
+					@endphp
+
+					@if($faqAd)
+						<div class="ads-header my-4">
+							{!! $faqAd->code !!}
+						</div>
+					@endif
                     <h6 class="inline-block py-1 px-3 mb-6 rounded-md text-[13px] font-medium text-[#60027C] bg-[#60027C] bg-opacity-15">
                         {!! __($fSectSettings->faq_text_one) !!}
                         <span class="dot"></span>

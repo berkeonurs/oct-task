@@ -212,6 +212,21 @@
 								</span>
                             </a>
                         </li>
+						<li class="nav-item">
+							<a class="nav-link {{activeRoute('dashboard.admin.adsense.list')}}" href="{{route('dashboard.admin.adsense.list')}}" >
+								<span class="nav-link-icon">
+									<svg stroke-width="1.5" class="size-navbar-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 12m-10 0a10 10 0 1 0 20 0a10 10 0 1 0 -20 0"></path>
+  <path d="M7 15v-4.5a1.5 1.5 0 0 1 3 0v4.5"></path>
+  <path d="M7 13h3"></path>
+  <path d="M14 9v6h1a2 2 0 0 0 2 -2v-2a2 2 0 0 0 -2 -2h-1z"></path>
+</svg>
+								</span>
+								<span class="flex items-center transition-[opacity,transform] nav-link-title grow">
+									{{__('Google Adsense')}}
+								</span>
+							</a>
+						</li>
                         <li class="nav-item">
                             <a class="nav-link {{activeRoute('dashboard.support.list')}}" href="{{route('dashboard.support.list')}}" >
 								<span class="nav-link-icon">

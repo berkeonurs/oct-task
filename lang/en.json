@@ -1456,6 +1456,19 @@
     "Manage AI Writer Categories" : "Manage AI Writer Categories",
     "Add Category" : "Add Category",
     "Category Name" : "Category Name",
-    "Category name for Custom AI Writers" : "Category name for Custom AI Writers"
+    "Category name for Custom AI Writers" : "Category name for Custom AI Writers",
+
+	"Google Adsense" : "Google Adsense",
+	"Google Adsense List " : "Google Adsense List",
+	"Google Adsense Edit" : "Google Adsense Edit",
+	"Back to Google Adsense" : "Back to Google Adsense",
+	"Adsense Type" : "Adsense Type",
+	"Updated On": "Updated On",
+	"Activate header section to view ads" : "Activate header section to view ads",
+	"Edit Google Adsense Code:" : "Edit Google Adsense Code:",
+	"Adsense Status" : "Adsense Status",
+	"Adsense Code" : "Adsense Code"
+
+
 
 }

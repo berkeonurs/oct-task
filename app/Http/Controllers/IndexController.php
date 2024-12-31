@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\SendConfirmationEmail;
+use App\Models\Adsense;
 use App\Models\Clients;
 use App\Models\CustomSettings;
 use App\Models\Faq;
@@ -48,6 +49,8 @@ class IndexController extends Controller
             return Redirect::to($setting->frontend_additional_url);
         }
 
+        $ads = Adsense::all();
+
 
         return view('index', compact(
             'templates',
@@ -62,7 +65,8 @@ class IndexController extends Controller
             'clients',
             'futures',
             'who_is_for',
-            'generatorsList'
+            'generatorsList',
+            'ads'
         ));
     }
 

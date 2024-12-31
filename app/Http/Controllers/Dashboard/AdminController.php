@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\PaymentController;
+use App\Http\Resources\AdsenseResource;
 use App\Models\Activity;
+use App\Models\Adsense;
 use App\Models\Clients;
 use App\Models\CustomSettings;
 use App\Models\Faq;
@@ -1078,6 +1080,33 @@ class AdminController extends Controller
         $item = FrontendGenerators::where('id', $id)->firstOrFail();
         $item->delete();
         return back()->with(['message' => 'Item deleted succesfully', 'type' => 'success']);
+    }
+
+    public function getAdsenseList()
+    {
+        $items = AdsenseResource::collection(Adsense::all())->resolve();
+        return view('panel.admin.adsense.list', compact('items'));
+    }
+
+    public function editAdsense(Request $request)
+    {
+        $item = Adsense::where('id', $request->id)->firstOrFail();
+        return view('panel.admin.adsense.edit', compact('item'));
+    }
+
+    public function updateAdsense(Request $request)
+    {
+        $validated = $request->validate([
+            'status' => 'required',
+            'code' => 'nullable',
+        ]);
+        $item = Adsense::where('id', $request->id)->firstOrFail();
+
+        $item->status = $request->status;
+        $item->code = $request->code;
+        $item->save();
+
+        return response()->json(['message' => 'Updated Successfully', 'type' => 'success']);
     }
 }
 
